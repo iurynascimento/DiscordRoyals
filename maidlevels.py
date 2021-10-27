@@ -71,7 +71,7 @@ async def add_experience(users, user):
 async def level_up(users, user, message):
   experience = users[f'{user.id}']["experience"]
   lvl_start = users[f'{user.id}']["level"]
-  lvl_end = int(experience ** (1 / 4))
+  lvl_end = int(experience ** (1 / 3))
   if lvl_start < lvl_end:
     responses = [
                 ' Incrivel, esse é seu level ',
@@ -86,48 +86,71 @@ async def level_up(users, user, message):
   
   # LEVELS ROLES
 
+  encasseract = 901917714208157746
+  magohexeract = 902622489027444846
+  metamago = 902622489828524103
+  lendamaxima = 902622495906086982
+  supremomestre = 902622496661053550
+  diretordemagia = 902622498011635736
+  arquimago = 902624168514813973
+  bruxo = 902622499160883220
+  mago = 902622500683386901
+  sacerdote = 902622500813414410
+  aprendiz = 902623978743545947
+
+
+  if lvl_end == 1: #ROLE LVL 1
+    role = user.guild.get_role(aprendiz)
+    await user.add_roles(role)
+    #print(f"{user.name, user.id} ADD ROLE")
+
+  if lvl_end == 3: #ROLE LVL 1
+    role = user.guild.get_role(sacerdote)
+    await user.add_roles(role)
+    #print(f"{user.name, user.id} ADD ROLE")
+
   if lvl_end == 5: #ROLE LVL 1
-    role = user.guild.get_role(901837274612916255)
+    role = user.guild.get_role(mago)
     await user.add_roles(role)
     #print(f"{user.name, user.id} ADD ROLE")
 
   if lvl_end == 15: #ROLE LVL 2
-    role = user.guild.get_role(901837293323681852)
+    role = user.guild.get_role(bruxo)
     await user.add_roles(role)
     #print(f"{user.name, user.id} ADD ROLE")
   
   if lvl_end == 25: #ROLE LVL 3
-    role = user.guild.get_role(901837295429222442)
+    role = user.guild.get_role(arquimago)
     await user.add_roles(role)
     #print(f"{user.name, user.id} ADD ROLE")
 
   if lvl_end == 35: #ROLE LVL 4
-    role = user.guild.get_role(901837296947580928)
+    role = user.guild.get_role(diretordemagia)
     await user.add_roles(role)
     #print(f"{user.name, user.id} ADD ROLE")
   
   if lvl_end == 45: #ROLE LVL 5
-    role = user.guild.get_role(901837299053121607)
+    role = user.guild.get_role(supremomestre)
     await user.add_roles(role)
     #print(f"{user.name, user.id} ADD ROLE")
 
   if lvl_end == 55: #ROLE LVL 6
-    role = user.guild.get_role(901837299384471593)
+    role = user.guild.get_role(lendamaxima)
     await user.add_roles(role)
     #print(f"{user.name, user.id} ADD ROLE")
   
   if lvl_end == 65: #ROLE LVL 7
-    role = user.guild.get_role(901837300965707786)
+    role = user.guild.get_role(metamago)
     await user.add_roles(role)
     #print(f"{user.name, user.id} ADD ROLE")
 
   if lvl_end == 75: #ROLE LVL 8
-    role = user.guild.get_role(901837301120921610)
+    role = user.guild.get_role(magohexeract)
     await user.add_roles(role)
     #print(f"{user.name, user.id} ADD ROLE")
 
   if lvl_end == 300: #ROLE LVL 9
-    role = user.guild.get_role(901855160689647707)
+    role = user.guild.get_role(encasseract)
     await user.add_roles(role)
     #print(f"{user.name, user.id} ADD ROLE")  
 #-----------------------------------#
