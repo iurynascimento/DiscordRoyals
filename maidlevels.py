@@ -62,7 +62,7 @@ async def add_experience(users, user):
         users[f'{user.id}'] = {}
         users[f'{user.id}']['experience'] = 0
         users[f'{user.id}']['level'] = 0
-  users[f'{user.id}']['experience'] += 6
+  users[f'{user.id}']['experience'] += 30
   print(f"{user.name}")
   print(f"{users[f'{user.id}']['level']}")
   print(f"{users[f'{user.id}']['experience']}")
@@ -71,19 +71,22 @@ async def add_experience(users, user):
 async def level_up(users, user, message):
   experience = users[f'{user.id}']["experience"]
   lvl_start = users[f'{user.id}']["level"]
-  lvl_end = int(experience ** (1 / 3))
+  lvl_end = int(experience ** (1 / 4))
+
   if lvl_start < lvl_end:
     responses = [
                 ' Incrivel, esse é seu level ',
                 ' Parabens, seu level agora é esse: ',
                 ]
-    
-
+  
     await message.channel.send(f" {user.mention} ```🔥 {random.choice(responses)} {lvl_end}. 🔥```")
     users[f'{user.id}']["level"] = lvl_end
    
     
   
+  
+
+
   # LEVELS ROLES
 
   encasseract = 901917714208157746
@@ -99,57 +102,59 @@ async def level_up(users, user, message):
   aprendiz = 902623978743545947
 
 
-  if lvl_end == 1: #ROLE LVL 1
+  
+
+  if experience > 500: #ROLE LVL 1
     role = user.guild.get_role(aprendiz)
     await user.add_roles(role)
     #print(f"{user.name, user.id} ADD ROLE")
 
-  if lvl_end == 3: #ROLE LVL 1
+  if experience > 1000: #ROLE LVL 1
     role = user.guild.get_role(sacerdote)
     await user.add_roles(role)
     #print(f"{user.name, user.id} ADD ROLE")
 
-  if lvl_end == 5: #ROLE LVL 1
+  if experience > 2000: #ROLE LVL 1
     role = user.guild.get_role(mago)
     await user.add_roles(role)
     #print(f"{user.name, user.id} ADD ROLE")
 
-  if lvl_end == 15: #ROLE LVL 2
+  if experience > 5000: #ROLE LVL 2
     role = user.guild.get_role(bruxo)
     await user.add_roles(role)
     #print(f"{user.name, user.id} ADD ROLE")
   
-  if lvl_end == 25: #ROLE LVL 3
+  if experience > 25000: #ROLE LVL 3
     role = user.guild.get_role(arquimago)
     await user.add_roles(role)
     #print(f"{user.name, user.id} ADD ROLE")
 
-  if lvl_end == 35: #ROLE LVL 4
+  if experience > 50000: #ROLE LVL 4
     role = user.guild.get_role(diretordemagia)
     await user.add_roles(role)
     #print(f"{user.name, user.id} ADD ROLE")
   
-  if lvl_end == 45: #ROLE LVL 5
+  if experience > 70000: #ROLE LVL 5
     role = user.guild.get_role(supremomestre)
     await user.add_roles(role)
     #print(f"{user.name, user.id} ADD ROLE")
 
-  if lvl_end == 55: #ROLE LVL 6
+  if experience > 80000: #ROLE LVL 6
     role = user.guild.get_role(lendamaxima)
     await user.add_roles(role)
     #print(f"{user.name, user.id} ADD ROLE")
   
-  if lvl_end == 65: #ROLE LVL 7
+  if experience > 100000: #ROLE LVL 7
     role = user.guild.get_role(metamago)
     await user.add_roles(role)
     #print(f"{user.name, user.id} ADD ROLE")
 
-  if lvl_end == 75: #ROLE LVL 8
+  if experience > 200000: #ROLE LVL 8
     role = user.guild.get_role(magohexeract)
     await user.add_roles(role)
     #print(f"{user.name, user.id} ADD ROLE")
 
-  if lvl_end == 300: #ROLE LVL 9
+  if experience > 300000: #ROLE LVL 9
     role = user.guild.get_role(encasseract)
     await user.add_roles(role)
     #print(f"{user.name, user.id} ADD ROLE")  
